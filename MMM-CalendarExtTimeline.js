@@ -4,6 +4,7 @@
 * By eouia
 */
 
+
 var CALEXTTL = {}
 
 CALEXTTL.round = function(number, precision) {
@@ -32,7 +33,12 @@ Module.register("MMM-CalendarExtTimeline",{
 		if (this.config.refresh_interval_sec < 60) {
 			this.config.refresh_interval_sec = 60
 		}
-		this.names = this.config.calendars
+		names = []
+
+		this.config.calendars.forEach(function(cal){
+			names.push(cal.name)
+		})
+		this.names = names
 	},
 
 	getStyles: function() {
@@ -111,17 +117,22 @@ Module.register("MMM-CalendarExtTimeline",{
 		var frameBody = document.createElement("tbody")
 		var i = 0
 		var self = this
-		this.names.forEach(function(name){
+		this.config.calendars.forEach(function(cal){
+		// this.names.forEach(function(name){
 			var row = document.createElement("tr")
 			var nameCell = document.createElement("td")
 			nameCell.className = "calendar calendar_" + i
-			nameCell.innerHTML = name
+			if(cal.title){
+				nameCell.innerHTML = cal.title				
+			}else{
+				nameCell.innerHTML = cal.name
+			}
 			var scheduleCell = document.createElement("td")
 			scheduleCell.className = "schedules schedules_" + i
 			var holder = document.createElement("div")
 			holder.className = "holder"
 
-			holder = self.makeEvents(name, holder)
+			holder = self.makeEvents(cal.name, holder)
 			scheduleCell.appendChild(holder)
 
 			i++
@@ -216,7 +227,7 @@ Module.register("MMM-CalendarExtTimeline",{
 				}
 			}
 		})
-		console.log(stack)
+		// console.log(stack)
 		stack.forEach(function(s) {
 			var line = document.createElement("div")
 			line.className = "eventPositionLine"

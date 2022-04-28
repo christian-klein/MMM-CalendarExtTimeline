@@ -8,7 +8,7 @@
 
 .CEXTML .current_timeline {
   width:0px;
-  height:24px;
+  height:40px;
   position:absolute;
   border-left:2px solid #F00;
   top:10px;
@@ -24,16 +24,16 @@
 .CEXTML .eventPositionLine {
   position:relative;
   width:100%;
-  height:24px;
-  line-height:24px;
+  height:40px;
+  line-height:40px;
   margin:1px 0;
 }
 
 .CEXTML .event {
   position:absolute;
-  height:24px;
-  font-size:14px;
-  line-height:24px;
+  height:40px;
+  font-size:26px;
+  line-height:40px;
   overflow:hidden;
   padding-left:6px;
   text-align:left;
@@ -47,6 +47,9 @@
 .CEXTML .event.endHere {
   border-top-right-radius:12px;
   border-bottom-right-radius:12px;
+  background-color:bisque;
+  color: darkslategray;
+  padding-top: 0px;
 }
 
 .CEXTML .timeCol td {
@@ -59,7 +62,7 @@
 
 .CEXTML .timeCol table {
   position:relative;
-  height:24px;
+  height:40px;
   overflow: hidden;
 }
 
@@ -74,7 +77,7 @@
   font-size:initial;
   border-bottom:1px solid #999;
   position:relative;
-  height:24px;
+  height:40px;
 }
 
 .CEXTML th.titleCol {
@@ -82,7 +85,7 @@
   font-weight:normal;
   font-size:initial;
   border-bottom:1px solid #999;
-  height:24px;
+  height:40px;
 }
 
 .CEXTML td.schedules {
@@ -95,10 +98,11 @@
 
 
 .CEXTML td.calendar {
+  font-size:26px;
   max-width:10%;
   font-weight:normal;
-  font-size:initial;
   border-bottom:1px solid #999;
   background-color:#333;
-
+  padding: 0px 5px 0px 5px;
+  white-space: nowrap;
 }
